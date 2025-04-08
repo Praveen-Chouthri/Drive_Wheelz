@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Rental</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/order.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div id="navbar" class="navbar" tabindex="0">
+                <img id="logo" src="/static/images/logo.png" class="logoim">
+                <div class="imgddcontent">
+                    <a href="{{url_for('home')}}">Home</a>
+                    <a href="">About</a>
+                </div>
+            </div>
+            <div class="luxury-logo">Drive wheelz</div>
+            <div class="profile-dropdown">
+                <button class="profile-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="username">
+                        {{ session['user_name'] if 'user_name' in session else 'Guest' }}
+                    </span>
+                </button>
+                <div class="profile-dropdown-content">
+                    <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a>
+                    <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Vehicles Available</h1>
+
+        <!-- Vehicle Type Selection -->
+        <div class="selection-section">
+            <h2>Select Vehicle Type</h2>
+            <div class="vehicle-types">
+                <div class="vehicle-card" data-type="cycle">
+                    <img src="/static/images/PPCI.png" alt="Cycle">
+                    <h3>Cycle</h3>
+                    <div class="popup">
+                        <h4>Cycle Details</h4>
+                        <p>Type: Road/Mountain</p>
+                        <p>Gears: 7-21 Speed</p>
+                        <p>Top Brands: Trek, Cannondale</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card" data-type="bike">
+                    <img src="/static/images/PPBI.png" alt="Bike">
+                    <h3>Bike</h3>
+                    <div class="popup">
+                        <h4>Bike Details</h4>
+                        <p>Engine: 150-500cc</p>
+                        <p>Mileage: 30-50 kmpl</p>
+                        <p>Top Brands: Harley, Ducati</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card" data-type="car">
+                    <img src="/static/images/PPCRI.png" alt="Car">
+                    <h3>Car</h3>
+                    <div class="popup">
+                        <h4>Car Details</h4>
+                        <p>Seats: 4-5</p>
+                        <p>Mileage: 12-18 kmpl</p>
+                        <p>Top Brands: Mercedes, BMW</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card" data-type="truck">
+                    <img src="/static/images/PPTI.png" alt="Truck">
+                    <h3>Truck</h3>
+                    <div class="popup">
+                        <h4>Truck Details</h4>
+                        <p>Capacity: 1-5 Tons</p>
+                        <p>Engine: Diesel</p>
+                        <p>Top Brands: Ford, Toyota</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Selection -->
+        <div class="selection-section hidden" id="brandSection">
+            <h2>Select Brand</h2>
+            <div class="brand-cards" id="brandCards"></div>
+        </div>
+
+        <!-- Model Selection -->
+        <div class="selection-section hidden" id="modelSection">
+            <h2>Select Model</h2>
+            <div class="model-cards" id="modelCards"></div>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="selection-section hidden" id="dateSection">
+            <h2>Select Rental Dates</h2>
+            <div class="date-picker">
+                <div class="date-input">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" min="">
+                </div>
+                <div class="date-input">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" min="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Rent Button -->
+        <div class="rent-now hidden" id="rentButton">
+            <button id="rentNowBtn">Rent Now</button>
+        </div>
+
+        <!-- Confirmation Message -->
+        <div id="confirmation" class="confirmation-box hidden"></div>
+    </div>
+
+    <script src="/static/order.js"></script>
+</body>
+
+</html>

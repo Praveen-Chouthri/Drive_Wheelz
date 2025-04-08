@@ -1,0 +1,303 @@
+h1 {
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    font-size: xx-large;
+    text-align: center;
+    font-size: 40px;
+    color: snow;
+    margin-top: -50px;
+}
+
+#cy {
+    background-image: url('/static/images/bike_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 95vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+#head {
+    padding-top: 10px;
+    text-align:center; 
+    font-family: sans-serif;
+    color:cyan;
+    font-size: 40px;
+    text-decoration:underline;
+}
+
+#navbar {
+    position: relative;
+    display: inline-block;
+    height: 62px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#logo {
+    outline: 3px solid darkcyan;
+    margin: 0px;
+    padding: 0%;
+    height: 62px;
+    width: 62px;
+    border: 2px solid goldenrod;
+    border-radius: 90%;
+}
+
+.dropdown {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: inline-block;
+    background-color:aliceblue;
+    border :3px solid greenyellow;
+    border-radius: 10px;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ddcontent {
+    margin-top : 10px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.ddcontent a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover effect */
+.ddcontent a:hover {
+    background-color: lightgray;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .ddcontent,
+.dropdown:focus-within .ddcontent {
+    display: block;
+}
+
+.dropdownbtn {
+    outline: 3px;
+    height: 62px;
+    width: 62px;
+}
+
+#user-icon {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    border-radius:50% ;
+    border: 2px solid black;
+    margin-right: 0px;
+    vertical-align: middle;
+}
+
+#username {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.imgddcontent {
+    display: none;
+    position: absolute;
+    left: 60px;
+    transform: translateX(-50%);
+    top: 110%;
+    /* Places it below the image */
+    background-color: darkcyan;
+    min-width: 120px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Dropdown links */
+.imgddcontent a {
+    display: block;
+    color: ivory;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hover effect for links */
+.imgddcontent a:hover {
+    background-color: lightgray;
+}
+
+/* Show dropdown on hover */
+.navbar:hover .imgddcontent,
+.navbar:focus-within .imgddcontent {
+    display: block;
+}
+
+#mtb {
+    padding: 0px;
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    border-radius : 10px;
+}
+
+#cb1 {
+    display: inline-block;
+    color :white;
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+    padding :10px;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    background-color: darkcyan;
+}
+
+
+#c1 {
+    position: relative;
+    margin-top: 30px;
+    width:300px;
+    height:300px;
+}
+
+#hercules {
+    justify-content: center;
+    display:flex; 
+    gap: 100px;
+}
+
+#htext {
+    text-align: center;
+}
+
+#btn {
+    justify-content: center;
+    border: 2px solid blueviolet;
+    width:250px;
+    height:250px;
+}
+
+#name {
+    text-align: center;
+}
+
+.hover-box {
+    backdrop-filter: blur(2px);
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border : 2px solid chartreuse;
+    color:chartreuse;
+    padding: 10px;
+    border-radius: 5px;
+    width: 210px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Show hover box on button hover */
+#c1:hover .hover-box, #c1:focus-within .hover-box  {
+    display: block;
+}
+
+#btnn {
+    display:flex;
+    justify-content :center; 
+    text-decoration:none;
+    
+
+}
+
+.bt {
+    text-align:center; 
+    margin: 50px;
+    padding: 20px 50px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+  }
+  .bt::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:dimgrey;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  /* glow */
+  .bt::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #FF0000, #FF7300, #FFFB00, #48FF00,
+      #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+  }
+  
+  @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+  }
+  
+  /* hover */
+  .bt:hover::before {
+    opacity: 1;
+  }
+  
+  .bt:active:after {
+    background: transparent;
+  }
+  
+  .bt:active {
+    color: #000;
+    font-weight: bold;
+  }

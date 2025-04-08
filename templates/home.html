@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Wheelz</title>
+    <link rel="stylesheet" href="/static/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body id="bg">
+    <div class="gradient-bg">
+        <svg>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="
+              1 0 0 0 0
+              0 1 0 0 0
+              0 0 1 0 0
+              0 0 0 20 -10" result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </svg>
+        <div class="gradients-container">
+          <div class="g1"></div>
+          <div class="g2"></div>
+          <div class="g3"></div>
+          <div class="g4"></div>
+          <div class="g5"></div>
+          <div class="interactive"></div>
+        </div>
+      </div>
+    <div id="lo">
+        <div id="navbar" class="navbar" tabindex="0">
+            <img id="logo" src="/static/images/logo.png" alt="Logo">
+            <div class="imgddcontent">
+                <a href="{{ url_for('home') }}">Home</a>
+                {% if user %}
+                <a id="profileBtn" href="{{ url_for('profile') }}">Profile</a>
+                {% else %}
+                <a id="profileBtn" href="#" onclick="showNotLoggedInAlert()">Profile</a>
+                {% endif %}
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Vehicles</a>
+                    <div class="dropdown-content">
+                        <a href="#">Cycle</a>
+                        <a href="#">Bike</a>
+                        <a href="#">Car</a>
+                        <a href="#">Truck</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="title">
+            <button class="login-signup-btn" onclick="toggleLoginSignup()">Login / Sign up</button>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <h1 class="glow-title">Dɾιʋҽ ɯԋҽҽʅȥ</h1><br>
+    </div>
+    <div class="wrapper" id="loginSignupPopup" style="display: none;">
+        <span class="close-btn" onclick="toggleLoginSignup()">&times;</span>
+        <div class="form-container sign-up">
+            
+            <form action="/signup" method="POST">
+                <h2>sign up</h2>
+                <div class="form-group">
+                    <input type="text" name="signup-user_name" required>
+                    <i class="fas fa-user"></i>
+                    <label for="signup-user_name">username</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="signup-age" min="13" max="80" required>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <label for="signup-age">age</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="signup-driver_id" required>
+                    <i class="fa-solid fa-id-card"></i>
+                    <label for="signup-driver_id">driver id</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="signup-email_id" required>
+                    <i class="fas fa-at"></i>
+                    <label for="signup-email_id">email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="signup-password" required>
+                    <i class="fas fa-lock"></i>
+                    <label for="signup-password">password</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="signup-confirm-password" required>
+                    <i class="fas fa-lock"></i>
+                    <label for="signup-confirm-password">confirm password</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="signup-keyword" required>
+                    <i class="fa-solid fa-key"></i>
+                    <label for="signup-keyword">keyword (for password recovery)</label>
+                </div>
+                <button type="submit" class="btn">sign up</button>
+                <div class="link">
+                    <p>You already have an account?<a href="#" class="signin-link"> sign in</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="/login" method="POST">
+                <h2>login</h2>
+                {% if error %}
+                <div id="errorBox" class="error-box">{{ error }}</div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let errorBox = document.getElementById("errorBox");
+                        if (errorBox) {
+                            document.getElementById('loginSignupPopup').style.display = 'flex';
+                            document.querySelector('.wrapper').classList.add('animated-signin');
+                            setTimeout(() => {
+                                errorBox.style.opacity = "0";
+                                setTimeout(() => errorBox.remove(), 1000);
+                            }, 3000);
+                        }
+                    });
+                </script>
+                {% endif %}
+                <div class="form-group">
+                    <input type="text" name="login-user_name" required autocomplete="off">
+                    <i class="fas fa-user"></i>
+                    <label for="login-user_name">username</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="login-password" required autocomplete="off">
+                    <i class="fas fa-lock"></i>
+                    <label for="login-password">password</label>
+                </div>
+                <div class="forgot-pass">
+                    <a href="#" onclick="document.getElementById('forgotPasswordField').style.display='block'">forgot password?</a>
+                </div>
+                <div id="forgotPasswordField" class="form-group" style="display: none;">
+                    <input type="text" name="keyword" autocomplete="off">
+                    <i class="fa-solid fa-key"></i>
+                    <label for="keyword">enter the keyword</label>
+                </div>
+                <button type="submit" class="btn">login</button>
+                <div class="link">
+                    <p>Don't have an account?<a href="#" class="signup-link"> sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
+
+    <div id="chatbot-window" style="display: none;">
+        <div class="close-button" onclick="toggleChatbot()">×</div>
+        <div id="chat-log"></div>
+    </div>
+
+    <script src="/static/home.js"></script>
+    <script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script>
+    <script>
+        let wrapper = document.querySelector('.wrapper');
+        const loginSignupBtn = document.querySelector('#title .login-signup-btn');
+        const signUpLink = document.querySelector('.link .signup-link');
+        const signInLink = document.querySelector('.link .signin-link');
+        const loginSignupPopup = document.getElementById('loginSignupPopup');
+
+        function toggleLoginSignup() {
+            loginSignupPopup.style.display = loginSignupPopup.style.display === 'none' ? 'flex' : 'none';
+            if (loginSignupPopup.style.display === 'flex') {
+                wrapper.classList.remove('animated-signup');
+                wrapper.classList.add('animated-signin');
+            }
+        }
+
+        if (signUpLink && signInLink && wrapper) {
+            signUpLink.addEventListener('click', () => {
+                wrapper.classList.add('animated-signin');
+                wrapper.classList.remove('animated-signup');
+            });
+
+            signInLink.addEventListener('click', () => {
+                wrapper.classList.add('animated-signup');
+                wrapper.classList.remove('animated-signin');
+            });
+        }
+
+        function showNotLoggedInAlert() {
+            alert("Please log in to access your profile.");
+        }
+    </script>
+    <script src="/static/home.js"></script>
+</body>
+
+<footer>
+    <h3>About Us</h3>
+    <p>Welcome to <strong>Drive wheelz</strong>, your trusted vehicle rental service for all your travel and transport
+        needs. Whether you're looking for a cycle for a casual ride, a bike for a quick commute, a car for a family trip,
+        or a truck for heavy-duty transport, we’ve got you covered!
+
+        With a wide range of well-maintained vehicles, affordable pricing, and easy booking, we ensure a seamless rental
+        experience. Customer satisfaction and safety are our top priorities.
+
+        Book with us today and enjoy a hassle-free journey!</p>
+    <p id="cr">
+        © 2025 | Vishwa&Praveen
+    </p>
+</footer>
+
+</html>

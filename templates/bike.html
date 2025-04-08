@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Bikes
+    </title>
+    <link rel="stylesheet" href="/static/bike.css">
+</head>
+
+<body id="cy">
+    <div id="lo">
+        <div id="navbar" class="navbar" tabindex="0">
+            <img id="logo" src="/static/images/logo.png" class="logoim">
+            <div class="imgddcontent">
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="">About</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <span id="username">{{ session['user_name'] if 'user_name' in session else 'Guest' }}</span>
+                <br>
+                <img id="user-icon" src="/static/images/profileicon.png" alt="User">
+
+            </button>
+            <div class="ddcontent">
+                <a href="{{ url_for('profile') }}"> Profile</a>
+                <a href="{{ url_for('logout') }}">Log out</a>
+            </div>
+        </div>
+        <h1>
+            Dɾιʋҽ ɯԋҽҽʅȥ
+        </h1>
+        <div id="head">
+            Bike
+        </div>
+        <div id="name">
+        <span id="cb1">
+            <b>Yamaha</b>
+        </span>
+        </div>
+        
+        <div id="hercules" >
+            <div id="c1" >
+                <button id="btn">
+                    <img id="mtb" src="/static/images/YB1.png" alt="">
+                    <a id="htext">
+                        Fascino 125 Fi
+                    </a>
+                    <div class="hover-box">
+                        <b>Fascino 125 Fi</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A stylish scooter with a fuel-injected engine for better efficiency. It offers a lightweight frame and comfortable ride for city commuting. The retro-modern design adds a premium feel.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/YB2.png" alt="">
+                    <a id="htext">
+                        R15(v4)
+                    </a>
+                    <div class="hover-box">
+                        <b>R15 (V4)</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A race-inspired sports bike with an aerodynamic fairing and aggressive styling. It features a liquid-cooled engine and advanced riding aids for better performance. Ideal for enthusiasts looking for track-like experience on the road.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/YB3.png" alt="">
+                    <a id="htext">            
+                        MATTE COPPER
+                    </a>
+                    <div class="hover-box">
+                        <b>MATTE COPPER</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A premium color variant available in select Yamaha models. It enhances the bike’s aesthetics with a sophisticated and bold finish. The matte finish gives a classy and unique appeal.</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <div id="name">
+            <span id="cb1">
+                <b>Bajaj</b>
+            </span>
+        </div>
+        
+        <div id="hercules">
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/BB1.png" alt="">
+                    <a id="htext">
+                        Bajaj CT 110X
+                    </a>
+                    <div class="hover-box">
+                        <b>Bajaj CT 110X</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A rugged commuter bike designed for tough roads and rural usage. It features a robust suspension and durable build for long-term reliability. Ideal for daily rides with excellent fuel efficiency.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/BB2.png" alt="">
+                    <a id="htext">
+                        Bajaj Pulsar NS200
+                    </a>
+                    <div class="hover-box">
+                        <b>Bajaj Pulsar NS200</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A powerful naked sports bike with a sharp and aggressive look. It comes with a liquid-cooled engine and perimeter frame for stability at high speeds. A popular choice for thrill-seekers and performance enthusiasts.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/BB3.png" alt="">
+                    <a id="htext">
+                        Bajaj Avenger 220 Cruise
+                    </a>
+                    <div class="hover-box">
+                        <b>Bajaj Avenger 220 Cruise</b><br>
+                        💰 Price: ₹1200 / Day
+                        <p><b>Description:</b>A comfortable cruiser designed for highway touring. It features a low-slung seat and relaxed riding posture for fatigue-free long rides. The classic cruiser styling makes it stand out on the road.</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div id="name">
+            <span id="cb1">
+                <b>Royal Enfield</b>
+            </span>
+        </div>
+        
+        <div id="hercules">
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/REB1.png" alt="">
+                    <a id="htext">
+                        Classic 350
+                    </a>
+                    <div class="hover-box">
+                        <b>Classic 350</b><br>
+                        💰 Price: ₹1500 / Day
+                        <p><b>Description:</b>A retro-styled bike known for its old-school charm and strong road presence. It offers a refined engine with smooth performance and comfortable ergonomics. Perfect for those who love timeless design with modern reliability.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/REB2.png" alt="">
+                    <a id="htext">
+                        Himalayan 450
+                    </a>
+                    <div class="hover-box">
+                        <b>Himalayan 450 </b><br>
+                        💰 Price: ₹1500 / Day
+                        <p><b>Description:</b>An adventure-touring motorcycle built for both highways and off-road terrain. It comes with a torquey engine, long-travel suspension, and rugged build. Ideal for riders who love exploring tough landscapes.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="c1">
+                <button id="btn">
+                    <img id="mtb" src="/static/images/REB3.png" alt="">
+                    <a id="htext">
+                        Bullet 350
+                    </a>
+                    <div class="hover-box">
+                        <b>Bullet 350</b><br>
+                        💰 Price: ₹1500 / Day
+                        <p><b>Description:</b>One of the most iconic motorcycles with a distinctive thump. It features a simple yet powerful design with a sturdy build. A classic choice for riders who love a raw and traditional riding experience.</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <a  id="btnn"href="{{url_for('order')}}">
+            <button class="bt">Rent a Vehicle</button>
+        </a>
+</body>
+
+</html>

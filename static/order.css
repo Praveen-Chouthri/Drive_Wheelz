@@ -1,0 +1,542 @@
+/* order.css*/
+
+/* Brand and Model Popups */
+.brand-card, .model-card {
+    position: relative;
+}
+
+.brand-popup, .model-popup {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.brand-card:hover .brand-popup,
+.model-card:hover .model-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-content h4 {
+    color: #1abc9c;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.brand-popup::before, .model-popup::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.9);
+}
+
+
+nav {
+    margin-left:-20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 5%;
+    background: linear-gradient(to right, rgba(26, 188, 156, 0.9), rgba(22, 160, 133, 0.9));
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#navbar {
+    margin-top:-20px;
+    position: relative;
+    display: inline-block;
+    height: 62px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#logo {
+    outline: 3px solid darkcyan;
+    margin: 0px;
+    padding: 0%;
+    height: 62px;
+    width: 62px;
+    border: 2px solid goldenrod;
+    border-radius: 90%;
+}
+
+.imgddcontent {
+    display: none;
+    position: absolute;
+    left: 60px;
+    transform: translateX(-50%);
+    top: 110%;
+    /*Places it below the image */
+    background-color: darkcyan;
+    min-width: 120px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Dropdown links */
+.imgddcontent a {
+    display: block;
+    color: ivory;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hover effect for links */
+.imgddcontent a:hover {
+    background-color: lightgray;
+}
+
+/* Show dropdown on hover */
+.navbar:hover .imgddcontent,
+.navbar:focus-within .imgddcontent {
+    display: block;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.luxury-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #f1f1f1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+}
+
+.profile-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.profile-btn:hover,.profile-btn:focus-within {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+.profile-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: rgba(26, 188, 156, 0.9);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown-content a:hover {
+    background-color: rgba(22, 160, 133, 1);
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+    display: block;
+}
+
+.profile-dropdown:focus-within .profile-dropdown-content {
+    display: block;
+    }
+    
+
+/* Add these new styles */
+.selection-section {
+    margin: 30px 0;
+    animation: fadeIn 0.5s ease;
+    /* Remove display: none from .hidden */
+}
+
+/* Add popup styles */
+.vehicle-card {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    top: 110%; /* Position below the card */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve popup content styling */
+.popup h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #1abc9c;
+}
+
+.popup p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* Add a small arrow */
+.popup::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .popup {
+        width: 180px;
+        height: 180px;
+        font-size: 90%;
+    }
+    
+    .vehicle-card {
+        margin-bottom: 30px; /* Add space for popup on mobile */
+    }
+}
+
+
+.vehicle-card:hover .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Add this to prevent overflow */
+.vehicle-types {
+    position: relative;
+}
+
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.visible {
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+    margin: 30px 0;
+    padding: initial;
+}
+
+/* Update existing styles */
+.selection-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rent-now {
+    transition: all 0.3s ease;
+}
+/* Modern Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.selection-section {
+    margin: 30px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.vehicle-types,
+.brand-cards,
+.model-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.vehicle-card,
+.brand-card,
+.model-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    width: 220px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.vehicle-card img,
+.brand-card img,
+.model-card img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.vehicle-card:hover,
+.brand-card:hover,
+.model-card:hover {
+    transform: translateY(-5px);
+    border-color: #1abc9c;
+    box-shadow: 0 10px 20px rgba(26, 188, 156, 0.2);
+}
+
+.date-picker {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.date-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.date-input input {
+    padding: 12px;
+    border: 2px solid #1abc9c;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+}
+
+.rent-now {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#rentNowBtn {
+    background: linear-gradient(45deg, #1abc9c, #16a085);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#rentNowBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(26, 188, 156, 0.3);
+}
+
+.confirmation-box {
+    background: rgba(26, 188, 156, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border: 2px solid #1abc9c;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Brand and Model Popups */
+.brand-card, .model-card {
+    position: relative;
+}
+
+.brand-popup, .model-popup {
+    position: absolute;
+    width: 500px;
+    min-height: 250px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.brand-card:hover .brand-popup,
+.model-card:hover .model-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.popup-content h4 {
+    color: #1abc9c;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.brand-popup::before, .model-popup::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.9);
+}
+
+.model-card .image-popup {
+    position: absolute;
+    top: -100%; /* Adjust as needed to position above the card */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px); /* Adjust translateY to fine-tune position */
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 101; /* Ensure it's above other popups */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.model-card:hover .image-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.model-card .image-popup img {
+    display: block;
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 3px;
+}
+
+/* Responsive adjustments for model image popup */
+@media (max-width: 768px) {
+    .model-card .image-popup {
+        top: -120%; /* Adjust further for smaller screens if necessary */
+    }
+    .model-card .image-popup img {
+        width: 80px;
+    }
+}

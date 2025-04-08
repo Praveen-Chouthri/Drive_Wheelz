@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+
+<body>
+    <!-- Luxury Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div id="navbar" class="navbar" tabindex="0">
+                <img id="logo" src="/static/images/logo.png" class="logoim">
+                <div class="imgddcontent">
+                    <a href="{{url_for('home')}}">Home</a>
+                    <a href="">About</a>
+                </div>
+            </div>
+            <div class="luxury-logo">Drive wheelz</div>
+            <div class="profile-dropdown">
+                <button class="profile-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="username">
+                        {{ session['user_name'] if 'user_name' in session else 'Guest' }}
+                    </span>
+                </button>
+                <div class="profile-dropdown-content">
+                    <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a>
+                    <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="animated-border"></div>
+        <h1 class="profile-title"><i class="fas fa-user"></i> User Profile</h1>
+
+
+        <!-- Tab Navigation -->
+        <div class="tabs flex space-x-4 mb-4">
+            <button id="accountTab" class="tab-button active" data-tab="accountDetails">Account</button>
+            <button id="rentedVehicleTab" class="tab-button" data-tab="rentedVehicleDetails">Rented Vehicles</button>
+        </div>
+
+        <!-- Account Details Section -->
+        <div id="accountDetails" class="tab-content">
+            <div class="account-details">
+                <h2 class="section-title"><i class="fas fa-id-card"></i> Account Details</h2>
+                <form action="{{ url_for('update_profile') }}" method="POST" class="account-form">
+                    <div class="detail-item">
+                        <label>Name:</label>
+                        <input type="text" name="user_name" class="input-field" value="{{user.user_name}}" disabled>
+                    </div>
+                    <div class="detail-item">
+                        <label>Age:</label>
+                        <input type="text" name="age" class="input-field" value="{{user.age}}" disabled>
+                    </div>
+                    <div class="detail-item">
+                        <label>Driving ID:</label>
+                        <input type="text" name="driver_id" class="input-field" value="{{user.driver_id}}" disabled>
+                    </div>
+                    <div class="detail-item">
+                        <label>Phone:</label>
+                        <input type="text" name="phone" class="input-field" value="{{user.phone}}" disabled>
+                    </div>
+                    <div class="detail-item">
+                        <label>Email ID:</label>
+                        <input type="text" name="email" class="input-field" value="{{user.email}}" disabled>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="button" class="edit-button" id="editButton">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <div id="editControls" class="hidden">
+                            <button type="submit" class="save-button" id="saveButton">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                            <button type="button" class="cancel-button" id="cancelButton">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Rented Vehicle Details Section -->
+        <div id="rentedVehicleDetails" class="tab-content hidden">
+            <div class="rented-vehicle-details">
+                <h2 class="section-title"><i class="fas fa-car"></i> Rental Details</h2>
+                <div class="sub-tab-nav">
+                    <button id="currentRentalsBtn" class="sub-tab-button active" data-list="currentRentalsList">Current
+                        & Upcoming</button>
+                    <button id="pastRentalsBtn" class="sub-tab-button" data-list="pastRentalsList">Past Rentals</button>
+                </div>
+
+                <div id="currentRentalsList" class="rental-list">
+                    {% if current_rentals %}
+                    <ul>
+                        {% for rental in current_rentals %}
+                        <li class="rental-item">
+                            <div class="rental-info">
+                                <p><strong>Rented Vehicle:</strong> {{ rental.vehicle_type }}</p>
+                                <p><strong>Brand Model:</strong> {{ rental.brand }} {{ rental.model }}</p>
+                                <p><strong>Vehicle Number:</strong> {{ rental.vehicle_number }}</p>
+                                <p><strong>Renting Date:</strong> {{ rental.start_date }}</p>
+                                <p><strong>Returning Date:</strong> {{ rental.end_date }}</p>
+                                <p><strong>Total Rent:</strong> {{ rental.total_rent }}</p>
+                            </div>
+                            <div class="rental-actions">
+                                <a class="receipt-btn"
+                                    href="{{ url_for('download_receipt', v_type=rental.vehicle_type, brand=rental.brand, model=rental.model, start_date=rental.start_date, end_date=rental.end_date, total_rent=rental.total_rent, vehicle_number=rental.vehicle_number) }}">
+                                    Download Receipt
+                                </a>
+                                <form action="{{ url_for('cancel_rental') }}" method="POST" style="display:inline;">
+                                    <input type="hidden" name="vehicle_number" value="{{ rental.vehicle_number }}">
+                                    <input type="hidden" name="start_date" value="{{ rental.start_date }}">
+                                    <button type="submit" class="cancel-btn">
+                                        Cancel Rent
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>You haven't rented any vehicles yet.</p>
+                    {% endif %}
+                </div>
+
+                <div id="pastRentalsList" class="rental-list hidden">
+                    {% if past_rentals %}
+                    <ul>
+                        {% for rental in past_rentals %}
+                        <li class="rental-item">
+                            <div class="rental-info">
+                                <p><strong>Rented Vehicle:</strong> {{ rental.vehicle_type }}</p>
+                                <p><strong>Brand Model:</strong> {{ rental.brand }} {{ rental.model }}</p>
+                                <p><strong>Vehicle Number:</strong> {{ rental.vehicle_number }}</p>
+                                <p><strong>Renting Date:</strong> {{ rental.start_date }}</p>
+                                <p><strong>Returning Date:</strong> {{ rental.end_date }}</p>
+                                <p><strong>Total Rent:</strong> {{ rental.total_rent }}</p>
+                            </div>
+                            <div class="rental-actions">
+                                <a class="receipt-btn"
+                                    href="{{ url_for('download_receipt', v_type=rental.vehicle_type, brand=rental.brand, model=rental.model, start_date=rental.start_date, end_date=rental.end_date, total_rent=rental.total_rent, vehicle_number=rental.vehicle_number) }}">
+                                    Download Receipt
+                                </a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>You have no past rentals.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- View Vehicles Button -->
+        <div class="vehicles-button">
+            <a href="{{ url_for('order') }}" class="view-vehicles-btn">
+                <i class="fas fa-car"></i> View Vehicles
+            </a>
+        </div>
+    </div>
+
+    <script src="/static/profile.js"></script>
+</body>
+
+</html>

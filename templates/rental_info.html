@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rental Information</title>
+    <style>
+        body {
+            background-color:lightblue;
+        }
+
+        #cntnt {
+            margin-left: 30px;
+        }
+
+        #em {
+            text-align: center;
+            font-size: x-large;
+            color: blue;
+            margin-top: 100px;
+        }
+
+        #h {
+            text-decoration: underline;
+            font-size: x-large;
+            color: hotpink;
+        }
+
+        #logo {
+            outline: 3px solid darkcyan;
+            margin: 0px;
+            padding: 0%;
+            height: 62px;
+            width: 62px;
+            border-radius: 50%;
+            /* Makes it circular */
+            border: 2px solid goldenrod;
+            cursor: pointer;
+        }
+
+        #lo {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #navbar {
+            position: relative;
+            display: inline-block;
+            height: 62px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #inrcntnt {
+            margin-left: 20px;
+            font-size: large;
+        }
+
+        #title {
+            text-align: center;
+            margin-top: -50px;
+            font-size: 40px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lo">
+        <div id="navbar" class="navbar" tabindex="0">
+            <img id="logo" src="/static/images/logo.png">
+        </div>
+
+        <div>
+            <p id="title">
+                <strong>
+                    Dɾιʋҽ ɯԋҽҽʅȥ
+                </strong>
+            </p>
+        </div>
+    </div>
+    <br>
+    <div id="cntnt">
+        <div>
+            <p id="h"><strong>User Details:</strong> </p>
+            <div id="inrcntnt">
+                <p><strong>Name:</strong> {{ user.user_name }}</p>
+                <p><strong>Age:</strong> {{ user.age }}</p>
+                <p><strong>Driver ID:</strong> {{ user.driver_id }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone:</strong> {{ user.phone }}</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <p id="h"><strong>Vehicle Details:</strong> </p>
+            <div id="inrcntnt">
+                <p><strong>Vehicle Type:</strong> {{ v_type }}</p>
+                <p><strong>Brand:</strong> {{ brand }}</p>
+                <p><strong>Model:</strong> {{ model }}</p>
+                <p><strong>Vehicle Number:</strong> {{ vehicle_number }}</p>
+                <p><strong>Renting Date:</strong> {{ start_date }}</p>
+                <p><strong>Returning Date:</strong> {{ end_date }}</p>
+                <p><strong>Total Rent:</strong> {{ total_rent }}</p>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div>
+            <p id="h"><strong>Terms and Conditions:</strong></p>
+            <ul id="inrcntnt">
+                <li><strong>Driver Requirements:</strong> Renters must be at least 13 yrs old and possess a
+                    valid
+                    driver's license (except for cycle).They may also need to meet certain driving history
+                    criteria.
+                </li>
+                <br>
+                <li> <strong>Booking Confirmation:</strong> A booking is confirmed only upon receiving our
+                    confirmation email. Review the details carefully.</li>
+                <br>
+                <li><strong>Payment:</strong> Rental charges are as displayed at booking and are payable as
+                    indicated on our website. Additional charges may apply for late returns or damages.</li>
+                <br>
+                <li><strong>Vehicle Condition:</strong> Inspect the vehicle at pick-up and report any existing
+                    damage. Return the vehicle in the same condition (except for normal wear and tear).</li>
+                <br>
+                <li><strong>Responsible Use:</strong> Use the vehicle lawfully and responsibly, adhering to all
+                    traffic regulations. Prohibited uses include illegal activities and unauthorized drivers.
+                </li>
+                <br>
+                <li><strong>Breakdown:</strong>Notify us immediately in case of a breakdown. Do not attempt
+                    repairs
+                    yourself unless instructed.</li>
+                <br>
+                <li><strong>Accidents: </strong> In case of an accident, inform the police and us immediately.
+                    Exchange information with involved parties.</li>
+                <br>
+                <li><strong>Damage Responsibility:</strong>Renters are responsible for damage to the vehicle
+                    beyond
+                    normal wear and tear.</li>
+                <br>
+                <li><strong>Termination:</strong>We reserve the right to terminate the rental agreement if these
+                    terms are breached.</li>
+                <br>
+                <li><strong>Governing Law:</strong>These terms are governed by the laws of India, and disputes
+                    will
+                    be subject to the jurisdiction of courts in Chennai, Tamil Nadu.</li>
+
+            </ul>
+        </div>
+        <p id="em"><b>Thank you for renting with Drive Wheelz!</b></p>
+    </div>
+</body>
+
+</html>
