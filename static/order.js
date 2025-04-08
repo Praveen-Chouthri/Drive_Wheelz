@@ -40,7 +40,7 @@ const vehicleData = {
                 description: 'Japanese manufacturer renowned for its high-performance motorcycles and scooters.',
                 image: 'yamaha_logo.png',
                 models: [
-                    { name: 'Fascino 125 Fi', image: 'YB1.PNG' },
+                    { name: 'Fascino 125 Fi', image: 'YB1.png' },
                     { name: 'R15(v4)', image: 'YB2.png' },
                     { name: 'MATTE COPPER', image: 'YB3.png' }
                 ]
@@ -108,9 +108,9 @@ const vehicleData = {
                 description: 'India\'s largest commercial vehicle manufacturer, offering a comprehensive range of trucks for various applications.',
                 image: 'tata_logo.png',
                 models: [
-                    { name: 'TATA SFC 712', image: 'TT1.JPG' },
-                    { name: 'TATA SIGNA 1923.K', image: 'TT2.JPG' },
-                    { name: 'TATA SIGNA 4021.S', image: 'TT3.JPG' }
+                    { name: 'TATA SFC 712', image: 'TT1.jpg' },
+                    { name: 'TATA SIGNA 1923.K', image: 'TT2.jpg' },
+                    { name: 'TATA SIGNA 4021.S', image: 'TT3.jpg' }
                 ]
             },
             AshokLeyland: {
