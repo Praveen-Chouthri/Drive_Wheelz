@@ -88,7 +88,7 @@ The application utilizes a relational database to store information about users,
 
 ## Purpose
 
-This project was developed as a course requirement for a **Database Systems (DS) course** to demonstrate understanding of database design, implementation, and application development.
+This project was developed as a course requirement for a **Database Management Systems (DBMS) course** to demonstrate understanding of database design, implementation, and application development.
 
 ---
 
