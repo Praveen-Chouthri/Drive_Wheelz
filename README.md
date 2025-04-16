@@ -1,10 +1,12 @@
-# Vehicle Rental Management System
+# **Vehicle Rental Management System**
 
-This repository contains the code for a Vehicle Rental Management System, a web application developed as a project for a Database Management Systems (DBMS) course.
+---
 
 ## Overview
 
-The Vehicle Rental Management System aims to provide a user-friendly platform for individuals to browse, book, and manage vehicle rentals online. It offers a range of features to simplify the rental process for users and provides a backend for managing vehicle availability and rental records.
+This repository contains the code for a **Vehicle Rental Management System**, a web application developed as a project for a **Database Management Systems (DBMS) course**. The system aims to provide a user-friendly platform for individuals to browse, book, and manage vehicle rentals online.
+
+---
 
 ## Key Features
 
@@ -18,6 +20,8 @@ The Vehicle Rental Management System aims to provide a user-friendly platform fo
 * **Receipt Generation:** Option for users to download rental receipts in PDF format.
 * **FAQ Chatbot:** A simple chatbot to answer frequently asked questions.
 
+---
+
 ## Technologies Used
 
 * **Python:** The primary programming language used for the backend logic.
@@ -27,6 +31,8 @@ The Vehicle Rental Management System aims to provide a user-friendly platform fo
 * **Flask-Mail:** Integrated for sending booking confirmation emails.
 * **QR Code Generator:** Used to generate QR codes for rental information.
 * **dotenv:** For managing environment variables.
+
+---
 
 ## Setup Instructions (Basic)
 
@@ -44,19 +50,50 @@ The Vehicle Rental Management System aims to provide a user-friendly platform fo
 4.  **Database Configuration:**
     * Ensure you have a compatible database set up (e.g., MySQL, PostgreSQL).
     * Update the `DB_CONNECTION_STRING` in your `.env` file with your database credentials.
+    * **Database Schema:** The application uses the following tables:
+        * **`users`:** Stores user information.
+            * `u_id` (INT, Primary Key, Auto-increment)
+            * `user_name` (VARCHAR, Unique, Not Null)
+            * `age` (INT)
+            * `driver_id` (VARCHAR)
+            * `pass` (VARCHAR, Not Null)
+            * `keyword` (VARCHAR)
+            * `email` (VARCHAR)
+            * `phone` (VARCHAR)
+        * **`vehicles`:** Stores vehicle details.
+            * `v_id` (INT, Primary Key, Auto-increment)
+            * `v_type` (VARCHAR, Not Null)
+            * `brand` (VARCHAR, Not Null)
+            * `model` (VARCHAR, Not Null)
+            * `rent_per_day` (DECIMAL, Not Null)
+        * **`rentals`:** Stores rental transaction information.
+            * `rental_id` (INT, Primary Key, Auto-increment)
+            * `v_id` (INT, Foreign Key referencing `vehicles.v_id`, Not Null)
+            * `u_id` (INT, Foreign Key referencing `users.u_id`, Not Null)
+            * `start_date` (DATE, Not Null)
+            * `end_date` (DATE, Not Null)
+            * `total_rent` (DECIMAL, Not Null)
 5.  **Run the application:**
     ```bash
     python app.py
     ```
 
+---
+
 ## Database
 
-The application utilizes a relational database to store information about users, vehicles, and rental transactions. The `database.py` file contains the logic for interacting with the database.
+The application utilizes a relational database to store information about users, vehicles, and rental transactions. The `database.py` file contains the logic for interacting with the database. The schema of the database is detailed in the **Database Configuration** section above.
+
+---
 
 ## Purpose
 
-This project was developed as a course requirement for a Database Management Systems (DBMS) course to demonstrate understanding of database design, implementation, and application development.
+This project was developed as a course requirement for a **Database Systems (DS) course** to demonstrate understanding of database design, implementation, and application development.
+
+---
 
 ## Video Demonstration
 
-A video demonstration showcasing the features and functionality of this Vehicle Rental Management System is available [https://www.youtube.com/watch?v=aKlwz6HJBR0].
+A video demonstration showcasing the features and functionality of this Vehicle Rental Management System is available https://www.youtube.com/watch?v=aKlwz6HJBR0.
+
+---
