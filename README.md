@@ -32,7 +32,7 @@ The Vehicle Rental Management System aims to provide a user-friendly platform fo
 
 1.  **Clone the repository:**
     ```bash
-    git clone <https://github.com/Praveen-Chouthri/Drive_Wheelz.git>
+    git clone https://github.com/Praveen-Chouthri/Drive_Wheelz.git
     ```
 2.  **Install dependencies:**
     ```bash
